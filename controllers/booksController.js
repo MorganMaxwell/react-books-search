@@ -4,7 +4,7 @@ module.exports = {
     // run on page load, get all saved books
     findAll: function (req, res) {
         db.Book
-            .findAll()
+            .find(req.query)
             .sort({ author: 1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
@@ -28,7 +28,7 @@ module.exports = {
         db.Book
         .create(req.body)
         .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+        .catch(err => console.log(err));
     },
     /*
     run on delete Button click, will need:

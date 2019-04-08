@@ -9,4 +9,5 @@ const bookSchema = new Schema({
 });
 
 const Book = mongoose.model("Book", bookSchema);
+
 module.exports = Book;
